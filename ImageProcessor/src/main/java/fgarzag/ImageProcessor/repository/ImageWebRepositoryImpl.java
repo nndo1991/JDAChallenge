@@ -9,14 +9,14 @@ import javax.imageio.ImageIO;
 
 import fgarzag.ImageProcessor.model.Image;
 
-public class ImageWebRepository implements ImageRepository, Runnable {
+public class ImageWebRepositoryImpl implements ImageRepository, Runnable {
 	
-	private Image image = new Image();
+	private Image image;
 	
-	public ImageWebRepository(String name, String url, String type) {
-		this.image.setName(name);
-		this.image.setUrl(url);
-		this.image.setType(type);
+	public static String destination_path;
+	
+	public ImageWebRepositoryImpl(String name, String url, String type) {
+		this.image = new Image(name, url, type, null);
 	}
 
 	public Image getImage(String id) {
@@ -34,7 +34,7 @@ public class ImageWebRepository implements ImageRepository, Runnable {
 	public void storeImage(Image image) {
 		
 		try {
-			ImageIO.write(image.getContent(), image.getType(), new File("src/main/resources/Images/"+image.getName()));
+			ImageIO.write(image.getContent(), image.getType(), new File(destination_path+image.getName()));
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
