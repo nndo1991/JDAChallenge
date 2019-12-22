@@ -2,6 +2,10 @@ package fgarzag.ImageProcessor.model;
 
 import java.awt.image.BufferedImage;
 
+/*This model if the basic definition of an Image object for our Program
+ *For now we only need the name, url, type, and the actual content of the image
+ *but it can easily be expanded to contain more attributes and implemented by other clases
+ */
 public class Image {
 	
 	private String name;
