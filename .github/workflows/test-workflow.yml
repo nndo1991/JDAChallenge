@@ -1,7 +1,4 @@
 on:
-  push:name: Test workflow
-
-on:
   push:
     branches:
       - test_workflow
