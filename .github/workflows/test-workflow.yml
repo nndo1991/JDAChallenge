@@ -22,3 +22,4 @@ jobs:
           echo "${{ github.ref }}"
           echo "${{ github.action }}"
           echo "${{ github.action_path }}"
+          echo "${{ github.workspace }}"
