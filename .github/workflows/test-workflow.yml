@@ -1,0 +1,25 @@
+on:
+  push:name: Test workflow
+
+on:
+  push:
+    branches:
+      - test_workflow
+
+jobs:
+  build-deploy:
+
+    runs-on: ubuntu-latest
+
+    steps:
+
+      - name: Run variables
+        id: vars
+        run: |
+          echo "${{ github.event_path }}"
+          echo "${{ github.workflow }}"
+          echo "${{ github.actor }}"
+          echo "${{ github.event_name }}"
+          echo "${{ github.ref }}"
+          echo "${{ github.action }}"
+          echo "${{ github.action_path }}"
