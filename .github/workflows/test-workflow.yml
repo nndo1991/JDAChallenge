@@ -1,7 +1,7 @@
 on:
   push:
-    paths:
-      - ImageProcessor/src/test/**
+    paths-ignore:
+      - '**'
     branches:
       - test_workflow
 
