@@ -1,25 +1,35 @@
 on:
   push:
-    paths-ignore:
-      - ImageProcessor/**
     branches:
       - test_workflow
 
 jobs:
-  build-deploy:
-
+  upper-envs:
     runs-on: ubuntu-latest
-
+    if: "!contains(github.event.head_commit.message, 'DEPLOY-DEV')"
     steps:
 
       - name: Run variables
         id: vars
         run: |
-          echo "${{ github.event_path }}"
-          echo "${{ github.workflow }}"
-          echo "${{ github.actor }}"
-          echo "${{ github.event_name }}"
-          echo "${{ github.ref }}"
-          echo "${{ github.action }}"
-          echo "${{ github.action_path }}"
-          echo "${{ github.workspace }}"
+          echo "THIS IS AN UPPER ENV"
+
+      - name: Exit env
+        id: vars
+        run: |
+          echo "EXITING UPPER ENV"
+  
+  development:
+    runs-on: ubuntu-latest
+    if: "contains(github.event.head_commit.message, 'DEPLOY-DEV')"
+    steps:
+
+      - name: Run variables
+        id: vars
+        run: |
+          echo "THIS IS DEVELOPMENT"
+
+      - name: Exit env
+        id: vars
+        run: |
+          echo "EXITING DEVELOPMENT"
