@@ -25,7 +25,7 @@ public class ServiceTests {
 	@Test(expected = FileNotFoundException.class)
 	public void notExistentFile() throws FileNotFoundException {
 		ImageServiceImpl obj = new ImageServiceImpl();
-		obj.validateSourceFile("C:/Users/fgarzag/Desktop/test/notexists1.txt");
+		obj.validateSourceFile("C:/Users/fgarzag/Desktop/test/notexists.txt");
 	}
 	
 	//Test with null Destination Path
