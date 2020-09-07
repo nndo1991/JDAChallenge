@@ -10,12 +10,10 @@ jobs:
     steps:
 
       - name: Run variables
-        id: vars
         run: |
           echo "THIS IS AN UPPER ENV"
 
       - name: Exit env
-        id: vars
         run: |
           echo "EXITING UPPER ENV"
   
@@ -25,11 +23,9 @@ jobs:
     steps:
 
       - name: Run variables
-        id: vars
         run: |
           echo "THIS IS DEVELOPMENT"
 
       - name: Exit env
-        id: vars
         run: |
           echo "EXITING DEVELOPMENT"
