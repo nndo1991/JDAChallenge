@@ -1,5 +1,7 @@
 on:
   push:
+    paths:
+      - ImageProcessor/src/test/**
     branches:
       - test_workflow
 
